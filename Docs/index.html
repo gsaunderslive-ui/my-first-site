@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My First Site</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 3rem;
+      line-height: 1.6;
+      color: #111;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    .timestamp {
+      background: #f5f5ff;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #dde;
+      max-width: 35rem;
+    }
+
+    .timestamp p {
+      margin: 0.25rem 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My First Site</h1>
+    <p>This page shows timestamps so you can verify your updates are reaching it.</p>
+  </header>
+
+  <section class="timestamp">
+    <h2>Current update timestamps</h2>
+    <p><strong>Page loaded:</strong> <span id="pageLoaded"></span></p>
+    <p><strong>File last modified:</strong> <span id="fileModified"></span></p>
+  </section>
+
+  <script>
+    const now = new Date();
+    const formattedNow = now.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'medium' });
+
+    document.getElementById('pageLoaded').textContent = formattedNow;
+
+    // document.lastModified may not always be reliable depending on server setup, but it gives a quick approximation.
+    const lastMod = document.lastModified;
+    document.getElementById('fileModified').textContent = lastMod || 'N/A';
+  </script>
+</body>
+</html>
