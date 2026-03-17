@@ -42,11 +42,18 @@
     <p><strong>File last modified:</strong> <span id="fileModified"></span></p>
   </section>
 
+  <section class="update-log">
+    <h2>Update log (test)</h2>
+    <p>Last test update: <span id="updateTest"></span></p>
+    <p>Make a change to this file and refresh to see this timestamp update.</p>
+  </section>
+
   <script>
     const now = new Date();
     const formattedNow = now.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'medium' });
 
     document.getElementById('pageLoaded').textContent = formattedNow;
+    document.getElementById('updateTest').textContent = formattedNow;
 
     // document.lastModified may not always be reliable depending on server setup, but it gives a quick approximation.
     const lastMod = document.lastModified;
