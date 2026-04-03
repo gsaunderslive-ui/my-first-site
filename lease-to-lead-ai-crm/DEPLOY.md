@@ -10,9 +10,15 @@ Do these once per environment (e.g. Production). I can’t access your accounts 
 4. **Visual playbook (SMS workflow graph):** run [`supabase/migrations/20260331180000_visual_playbook_workflows.sql`](./supabase/migrations/20260331180000_visual_playbook_workflows.sql) in the SQL editor. Without these tables, **Settings → Visual playbook** cannot save workflows. After deploy, open that page, create a workflow, click **Set active**. When **exactly one** workflow has `is_active = true` for your company, **inbound and outbound SMS** use that graph (node `message_prompt`s + `lib/visualPlaybook/openaiRender.ts`). If **no** workflow is active, the app keeps using the JSON **Company playbook** under Settings → Company playbook (JSON).
 5. **Project Settings → API**: copy `URL`, `anon` `public`, and `service_role` keys (keep service role secret).
 
-## 2. Vercel (from your machine — **no GitHub required**)
+## 2. Vercel
 
-You can keep deploying the way you already do: **upload from here** using the Vercel CLI, without linking GitHub.
+### If this app lives in a subfolder on GitHub (this repo)
+
+When you **Import** the Git repository on Vercel, set **Root Directory** to `lease-to-lead-ai-crm`. Otherwise builds will fail (no `package.json` at repo root).
+
+### From your machine — **no GitHub required**
+
+You can deploy **upload from disk** using the Vercel CLI, without linking GitHub—run commands from inside `lease-to-lead-ai-crm`.
 
 ### One-time: Vercel project + env vars
 
