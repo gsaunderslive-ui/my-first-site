@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-a: #f8fafc;
+  --bg-b: #e2e8f0;
+  --ring: #14b8a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(20, 184, 166, 0.12), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(249, 115, 22, 0.14), transparent 38%),
+    linear-gradient(160deg, var(--bg-a), var(--bg-b));
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Brief ease when workflow import lands + viewport fit (class removed after ~600ms in builder). */
+.react-flow__node.playbook-node-import-ease {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
